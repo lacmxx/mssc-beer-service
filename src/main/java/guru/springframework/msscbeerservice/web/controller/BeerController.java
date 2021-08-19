@@ -4,6 +4,7 @@ import guru.springframework.msscbeerservice.web.model.BeerDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.UUID;
 
 @RestController
@@ -19,7 +20,7 @@ public class BeerController {
     @PostMapping
     public ResponseEntity save(@RequestBody BeerDto beerDto){
         // TODO impl
-        return ResponseEntity.created( null ).build();
+        return ResponseEntity.created( URI.create(String.format("/api/v1/beer/%s", beerDto.getId())) ).build();
     }
 
     @PutMapping("/{id}")
