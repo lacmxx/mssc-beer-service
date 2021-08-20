@@ -2,6 +2,7 @@ package guru.springframework.msscbeerservice.web.controller;
 
 import guru.springframework.msscbeerservice.web.model.BeerDto;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -18,13 +19,13 @@ public class BeerController {
     }
 
     @PostMapping
-    public ResponseEntity save(@RequestBody BeerDto beerDto){
+    public ResponseEntity save(@Validated @RequestBody BeerDto beerDto){
         // TODO impl
         return ResponseEntity.created( URI.create(String.format("/api/v1/beer/%s", beerDto.getId())) ).build();
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity update(@PathVariable UUID id, @RequestBody BeerDto beerDto){
+    public ResponseEntity update(@PathVariable UUID id, @Validated @RequestBody BeerDto beerDto){
         // TODO impl
         return ResponseEntity.noContent().build();
     }
