@@ -29,7 +29,7 @@ class BeerControllerTest {
 
     @Test
     void getTest() throws Exception {
-        ResultActions resultActions = mockMvc.perform(get(endPoint + UUID.randomUUID().toString())
+        ResultActions resultActions = mockMvc.perform(get(String.format("%s%s", endPoint, UUID.randomUUID().toString()))
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
@@ -59,7 +59,7 @@ class BeerControllerTest {
                 .upc(123458L)
                 .build();
         String beerToJson = objectMapper.writeValueAsString(beerDto);
-        mockMvc.perform( put(endPoint)
+        mockMvc.perform( put(String.format("%s%s", endPoint, UUID.randomUUID().toString()))
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(beerToJson)
         ).andExpect(status().isNoContent());
