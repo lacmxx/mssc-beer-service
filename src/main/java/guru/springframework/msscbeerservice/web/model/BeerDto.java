@@ -22,12 +22,6 @@ public class BeerDto {
     @Null
     private Integer version;
 
-    @Null
-    private OffsetDateTime createdDate;
-
-    @Null
-    private OffsetDateTime lastModifiedDate;
-
     @NotBlank
     private String name;
 
@@ -44,5 +38,11 @@ public class BeerDto {
 
     @PositiveOrZero
     private Integer quantityOnHand;
+
+    @Null
+    private OffsetDateTime createdDate;
+
+    @Null
+    private OffsetDateTime lastModifiedDate;
 
 }
