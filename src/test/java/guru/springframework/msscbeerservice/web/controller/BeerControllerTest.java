@@ -1,6 +1,7 @@
 package guru.springframework.msscbeerservice.web.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import guru.springframework.msscbeerservice.bootstrap.BeerLoader;
 import guru.springframework.msscbeerservice.service.BeerService;
 import guru.springframework.msscbeerservice.web.model.BeerDto;
 import guru.springframework.msscbeerservice.web.model.BeerStyleEnum;
@@ -76,7 +77,7 @@ class BeerControllerTest {
                 .name("Lachy's Beer")
                 .style(BeerStyleEnum.ALE)
                 .price(new BigDecimal("2.99"))
-                .upc(123458L)
+                .upc(BeerLoader.BEER_1_UPC)
                 .build();
     }
 }

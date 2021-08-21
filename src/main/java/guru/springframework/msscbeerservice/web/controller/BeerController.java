@@ -26,14 +26,6 @@ public class BeerController {
     public ResponseEntity save(@Validated @RequestBody BeerDto beerDto){
         BeerDto savedDto = beerService.saveNewBeer(beerDto);
         return ResponseEntity.created( URI.create(String.format("/api/v1/beer/%s", savedDto.getId())) ).build();
-
-        /*
-        HttpHeaders headers = new HttpHeaders();
-        // TODO add hostname for location
-        headers.add("Location", String.format("/api/v1/beer/%s", savedDto.getId().toString()));
-        return ResponseEntity(headers, HttpStatus.CREATED);
-        */
-
     }
 
     @PutMapping("/{id}")

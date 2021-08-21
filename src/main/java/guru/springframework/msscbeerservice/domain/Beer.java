@@ -32,7 +32,7 @@ public class Beer {
     private String style;
 
     @Column(unique = true)
-    private Long upc;
+    private String upc;
 
     private BigDecimal price;
 
